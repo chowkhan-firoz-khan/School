@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="/saveBranch" method="post"
+		enctype="application/x-www-form-urlencoded">
+		<input name="accountId" th:value="${branch.account.id}">
+		<div class="form-group">
+			<label for="branchCode">Branch Code:</label> <input type="text"
+				class="form-control" id="branchCode" name="branchCode" th:value="${branch.branchCode}">
+		</div>
+		<div class="form-group">
+			<label for="addLine1">Branch Name</label> <input type="text"
+				class="form-control" name="branchName">
+		</div>
+		<div class="form-group">
+			<label for="pwd">Address Line1:</label> <input type="text"
+				class="form-control" name="addLine1">
+		</div>
+		<div class="form-group">
+			<label for="pwd">Address Line2:</label> <input type="text"
+				class="form-control" name="addLine2">
+		</div>
+		<div class="form-group">
+			<label for="pwd">City:</label> <input type="text"
+				class="form-control" name="city">
+		</div>
+		<div class="form-group">
+			<label for="pwd">State:</label> <input type="text"
+				class="form-control" name="state">
+		</div>
+		<div class="form-group">
+			<label for="pwd">Country:</label> <input type="text"
+				class="form-control" name="country">
+		</div>
+		<button type="submit" class="btn btn-default">Submit</button>
+	</form>
+</body>
+</html>

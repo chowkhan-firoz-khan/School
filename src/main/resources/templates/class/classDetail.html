@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript" th:src="@{/js/jquery-3.3.1.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
+<link rel="stylesheet" th:href="@{/styles/bootstrap.min.css}">
+</head>
+<body>
+	<form action="/uploadUser" enctype="multipart/form-data" method="post">
+		<input th:value="${classDetail.id}" name="classid" /> <input
+			type="file" name="uploadUsers" />
+		<button class="btn btn-default">Submit</button>
+	</form>
+	
+	<form action="/uploadAttendnace" enctype="multipart/form-data" method="post">
+		<input th:value="${classDetail.id}" name="classid" /> <input
+			type="file" name="uploadAttendance" />
+		<button class="btn btn-default">Submit</button>
+	</form>
+</body>
+</html>

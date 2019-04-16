@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{styles/bootstrap.min.css}">
+<style type="text/css">
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+</style>
+</head>
+<body>
+    <div class="container">
+    	<div class="row">
+    	  <a href="/newAccount" class="btn btn-default">New Account</a>
+    	</div>
+    </div>
+	<div class="container">
+		<div class="row">
+		    <div class="col">Account Name</div>
+		    <div class="col">Is Active</div>
+		</div>
+		 <div th:each="account : ${accounts}" class="row">
+		  		<div class="col"><a th:href="@{/accountDetails/(id=${account.id})}" th:text="${account.accountName}"></a></div>
+		  		<div class="col" th:text="${account.active}"></div>
+		  </div>
+	</div>
+</body>
+</html>

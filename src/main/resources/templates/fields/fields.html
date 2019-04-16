@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript" th:src="@{js/jquery-3.3.1.min.js}"></script>
+<script type="text/javascript" th:src="@{js/popper.min.js}"></script>
+<link rel="stylesheet" th:href="@{styles/bootstrap.min.css}">
+</head>
+<body>
+	List Of Fields
+	<div class="container">
+		<div class="row">
+			<div class="col-lg">
+			   <a class="btn btn-primary" href="newField">New Field</a>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm">Field Name</div>
+				<div class="col-sm">Field Label</div>
+			</div>
+		</div>
+		<div class="container">
+		   <div th:each="fields : ${fields}" class="row">
+		       <div  class="col-sm"><a th:text="${fields.name}" th:href="@{/showFieldDetail/(id=${fields.id})}"></a></div>
+		       <div th:text="${fields.label}" class="col-sm"></div>
+		   </div>
+		</div>
+	</div>
+</body>
+</html>

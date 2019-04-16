@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"
+	data-dojo-config="async: true"></script>
+<title>School Management System</title>
+<style type="text/css">
+body, html {
+	margin: 0px;
+	height: 100%;
+	overflow: auto;
+}
+
+header, footer {
+	height: 50px;
+	background: #4d566b;
+}
+
+section, aside {
+	height: 100%;
+}
+</style>
+<script type="text/javascript" th:src="@{js/jquery-3.3.1.min.js}"></script>
+<!-- <script type="text/javascript" th:src="@{js/jquery-3.3.1.slim.min.js}"></script> -->
+<script type="text/javascript" th:src="@{js/popper.min.js}"></script>
+<script type="text/javascript" th:src="@{js/bootstrap.min.js}"></script>
+<link rel="stylesheet" th:href="@{styles/bootstrap.min.css}">
+</head>
+<body>
+	<header></header>
+	<aside>
+		<div>
+			<div>
+				<a href="#" id="accounts" onclick="changeFrameSrc('/accounts')">Accounts</a>
+			</div>
+			<div>
+				<a href="#" id="fields" onclick="changeFrameSrc('/fields')">Fields</a>
+			</div>
+		</div>
+	</aside>
+	<section>
+		<embed id="frame" src="/accounts" height="100%" width="100%">
+	</section>
+	<script type="text/javascript">
+		function changeFrameSrc(url) {
+			document.getElementById('frame').src = url;
+		}
+	</script>
+</body>
+</html>

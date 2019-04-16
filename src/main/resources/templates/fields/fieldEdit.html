@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript" th:src="@{/js/jquery-3.3.1.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
+<link rel="stylesheet" th:href="@{/styles/bootstrap.min.css}">
+</head>
+<body>
+    <div th:each="validations : ${field.validations}">
+        <p th:text="${validations}"></p>
+    </div>
+	<form th:action="${field.action}" th:method="${field.method}">
+		<input type="hidden" name="action" th:value="${field.action}">
+		<input type="hidden" name="method" th:value="${field.method}">
+	    <div th:if="${field.method eq 'put'}">
+	       <input type="hidden" name="id" th:value="${field.id}">
+	    </div>
+		<div class="form-group">
+			<label for="name">Name :</label> <input type="text"
+				class="form-control" id="name" name="name" th:value="${field.name}">
+		</div>
+		<div class="form-group">
+			<label for="label">Label:</label> <input type="text"
+				class="form-control" id="label" name="label" th:value="${field.label}">
+		</div>
+		<div class="form-group">
+			<label for="label">Field Type:</label> <select id="fieldType"
+				name="fieldType">
+				<option th:each="fieldTypem : ${field.fieldTypes}" th:value="${fieldTypem}" th:text="${fieldTypem}" th:selected="${ fieldTypem eq field.fieldType}"></option>
+			</select>
+		</div>
+		<button type="submit" class="btn btn-success">Submit</button>
+	</form>
+</body>
+</html>
